@@ -3,7 +3,7 @@
 # Topic: Conditional Logic, Loops, and Functions
 # =============================================================================
 #
-# TASK: Prime Number Checker
+# TASK:  Prime Number checker
 #
 # Write a Python program that checks whether a given number is prime.
 #
