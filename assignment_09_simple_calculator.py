@@ -68,3 +68,95 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def add(a, b):
+    return a + b
+
+
+def subtract(a, b):
+    return a - b
+
+
+def multiply(a, b):
+    return a * b
+
+
+def divide(a, b):
+    if b == 0:
+        return None
+    return round(a / b, 2)
+
+
+def modulus(a, b):
+    if b == 0:
+        return None
+    return a % b
+
+
+def exponentiate(a, b):
+    return a ** b
+
+
+def display_menu():
+    print("\n============================")
+    print("     SIMPLE CALCULATOR")
+    print("============================")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Modulus")
+    print("6. Exponentiation")
+    print("7. Quit")
+
+
+def get_numbers():
+    first = float(input("Enter first number : "))
+    second = float(input("Enter second number: "))
+    return first, second
+
+
+def main():
+    operations = {
+        "1": ("+", add),
+        "2": ("-", subtract),
+        "3": ("*", multiply),
+        "4": ("/", divide),
+        "5": ("%", modulus),
+        "6": ("**", exponentiate),
+    }
+
+    while True:
+        display_menu()
+        choice = input("Select an operation (1-7): ")
+
+        if choice == "7":
+            print("Goodbye!")
+            break
+
+        if choice not in operations:
+            print("Error: Invalid choice. Please enter a number between 1 and 7.")
+            continue
+
+        symbol, operation = operations[choice]
+        a, b = get_numbers()
+
+        if choice in ("4", "5") and b == 0:
+            print("Error: Cannot divide by zero.")
+            continue
+
+        result = operation(a, b)
+
+        if choice in ("1", "2", "3", "5") and result == int(result):
+            result_display = int(result)
+        else:
+            result_display = result
+
+        print(f"Result: {a:g} {symbol} {b:g} = {result_display}")
+
+
+def main():
+    main()
+
+
+if __name__ == "__main__":
+    main()
